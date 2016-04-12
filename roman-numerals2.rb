@@ -17,8 +17,20 @@ $modern_letters = {
   "CCCC" => "CD"
 }
 
-def convert_to_roman(arabic_number, options = {})
-  number = arabic_number
+def convert_to_roman( options = {})
+  options = {}
+  puts "Convert a number"
+  number = gets.chomp.to_i
+  puts "OK, great. Do you want modern Roman Numerals? (Y/N)"
+  result = gets.chomp
+      if result == 'Y'
+        options[:modern] = true
+      elsif result == 'N'
+        options[:modern] = false
+      else
+        puts "Sorry, I don't recognize that value."
+        exit
+      end
   numeral = ""
     $letters.each do |key,value|
       numeral += value * (number/key)
@@ -34,4 +46,4 @@ def convert_to_roman(arabic_number, options = {})
 p numeral
 end
 
-convert_to_roman(44, {:modern => true})
+convert_to_roman({:modern => true})
