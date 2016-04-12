@@ -17,7 +17,7 @@ $modern_letters = {
   "CCCC" => "CD"
 }
 
-def convert_to_roman( options = {})
+def convert_to_roman()
   options = {}
   puts "Convert a number"
   number = gets.chomp.to_i
@@ -46,4 +46,4 @@ def convert_to_roman( options = {})
 p numeral
 end
 
-convert_to_roman({:modern => true})
+convert_to_roman()
