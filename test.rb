@@ -18,23 +18,26 @@ $modern_letters = {
 }
 
 def convert_to_roman()
-  options = {}
-  puts "Convert a number"
-  number = gets.chomp.to_i
-  puts "OK, great. Do you want modern Roman Numerals? (Y/N)"
-  result = gets.chomp
-      if result == 'Y'
-        options[:modern] = true
-      elsif result == 'N'
-        options[:modern] = false
-      else
-        puts "Sorry, I don't recognize that value."
-        exit
-      end
+options = {}
+puts "Enter a number"
+num = gets.chomp.to_i
+puts "Modern numerals? (Y/N)"
+result = gets.chomp
+if
+  result == "Y"
+  options[:modern] = true
+elsif
+  result == "N"
+  options[:modern] = false
+else
+  puts "sorry, not a valid value"
+  exit
+end
+
   numeral = ""
     $letters.each do |key,value|
-      numeral += value * (number/key)
-      number -= key * (number/key)
+      numeral += value * (num/key)
+      num -= key * (num/key)
     end
 
   if options.has_key?(:modern) && options[:modern] == true
@@ -46,6 +49,4 @@ def convert_to_roman()
 p numeral
 end
 
-
 convert_to_roman()
-
